@@ -1,0 +1,71 @@
+<div class="container">
+
+
+	<!-- Logo -->
+	<div class="four columns">
+		<div id="logo">
+			<h1><a href="index.html"><img src="https://www.atria.co.id/puri-indah/wp-content/uploads/2023/03/logo-atria-1-88-6-100x100-2.jpg" alt="Atria" /></a></h1>
+		</div>
+	</div>
+
+
+	<!-- Additional Menu -->
+	<div class="twelve columns">
+		<div id="additional-menu">
+			<ul>
+				<li><a href="checkout-billing-details.html">Checkout</a></li>
+				<li><a href="my-account.html">My Account</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<!-- Shopping Cart -->
+	<div class="twelve columns">
+
+		<div id="cart">
+
+			<!-- Button -->
+			<div class="cart-btn">
+				<a (click)="openCart()" class="button adc" style="height: 23px;"></a>
+			</div>
+
+			<div class="cart-list" *ngIf="showCart">
+
+			<div class="arrow"></div>
+
+				<div class="cart-amount">
+					<span> {{ cartList ? cartList.length + ' items in the shopping cart' : 'Empty Cart' }}</span>
+				</div>
+
+					<ul *ngIf="cartList">
+						<li *ngFor="let cart of cartList">
+							<a href="#"><img src="{{ cart.image }}" alt="" /></a>
+							<a href="#">{{ cart.name }}</a>
+							<span>{{ cart.qty }} x {{ cart.price | rupiah }}</span>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+
+				<div class="cart-buttons button">
+					<a (click)="goToCart()"  class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a>
+					<a href="checkout-billing-details.html" class="checkout"><span data-hover="Checkout">Checkout</span></a>
+				</div>
+				<div class="clearfix">
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Search -->
+		<nav class="top-search">
+			<form action="#" method="get">
+				<button><i class="fa fa-search"></i></button>
+				<input class="search-field" type="text" placeholder="Search" value=""/>
+			</form>
+		</nav>
+
+	</div>
+
+</div>

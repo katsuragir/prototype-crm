@@ -1,0 +1,33 @@
+<div class="container">
+
+	<!-- Headline -->
+	<div class="sixteen columns">
+		<h3 class="headline">New Arrivals</h3>
+		<span class="line margin-bottom-0"></span>
+	</div>
+
+	<!-- Products -->
+	<div class="four columns" *ngFor="let product of productList">
+		<article class="from-the-blog">
+
+			<figure class="from-the-blog-image">
+				<a href="blog-single-post.html"><img [src]="product.product.image" alt="" /></a>
+				<div class="hover-icon"></div>
+			</figure>
+
+			<section class="from-the-blog-content">
+				<a href="blog-single-post.html"><h5>{{ product.product.name }}</h5></a>
+				<i>By Vasterad on May 31, 2014</i>
+				<span>{{ product.product.price | rupiah }}</span>
+        <div style="display: flex;">
+          <share-button button="whatsapp" [title]="product.product.name" [description]="product.product.description" [image]="product.product.image" [text]="'Bagikan'" style="background-color: grey; margin-right: 5px;">Bagikan</share-button>
+          <div class="cart-btn">
+            <a (click)="addCart(product.product)" class="button adc" style="height: 23px;"></a>
+          </div>
+        </div>
+			</section>
+
+		</article>
+	</div>
+
+</div>
